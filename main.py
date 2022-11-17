@@ -1,39 +1,42 @@
 def calculator():
-    val = input("Please enter a number: ")
-    val2 = input("Please enter a second number: ")
-    while not val.isdigit() & val2.isdigit():
-        print("Choose a number")
-        val = input("Please enter a number: ")
-        val2 = input("Please enter a second number: ")
-    action = input("Choose +, -, * or /: ")
-    while not (action == "+" or action == "-" or action == "*" or action == "/"):
-        action = input("Choose again  +, -, * or / : ")
-    if action == "+":
-        add(val, val2)
-    elif action == "-":
-        subtract(val, val2)
-    elif action == "*":
-        multiply(val, val2)
-    elif action == "/":
-        divide(val, val2)
-    print("Finished")
+    print("Welcome to calculator!")
+    end = ""
+    while end != "exit":
+        val = ""
+        val2 = ""
+        while not val.isdigit():
+            val = input("Please enter the first number: ")
+        while not val2.isdigit():
+            val2 = input("Please enter the second number: ")
+        action = ""
+        while not (action == "+" or action == "-" or action == "*" or action == "/"):
+            action = input("Choose +, -, * or / : ")
+        if action == "+":
+            add(val, val2)
+        elif action == "-":
+            subtract(val, val2)
+        elif action == "*":
+            multiply(val, val2)
+        elif action == "/":
+            divide(val, val2)
+        end = input("Type 'exit' to end the program or whatever else to continue: ")
 
 
 def add(val, val2):
-    print(int(val) + int(val2))
+    print("The result is: " + str(int(val) + int(val2)))
 
 
 def subtract(val, val2):
-    print(int(val) - int(val2))
+    print("The result is: " + str(int(val) - int(val2)))
 
 
 def multiply(val, val2):
-    print(int(val) * int(val2))
+    print("The result is: " + str(int(val) * int(val2)))
 
 
 def divide(val, val2):
     try:
-        print(int(val) / int(val2))
+        print("The result is: " + str(int(val) / int(val2)))
     except ZeroDivisionError:
         print("Do not divide by 0!")
 
