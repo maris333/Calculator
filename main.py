@@ -4,22 +4,26 @@ def calculator():
     while end != "exit":
         val = ""
         val2 = ""
-        while not val.isdigit():
-            val = input("Please enter the first number: ")
-        while not val2.isdigit():
-            val2 = input("Please enter the second number: ")
-        action = ""
-        while not (action == "+" or action == "-" or action == "*" or action == "/"):
-            action = input("Choose +, -, * or / : ")
-        if action == "+":
+        operation = ""
+        val = number_validation(val, "Please enter the first number: ")
+        val2 = number_validation(val2, "Please enter the second number: ")
+        while not (operation == "+" or operation == "-" or operation == "*" or operation == "/"):
+            operation = input("Choose +, -, * or / : ")
+        if operation == "+":
             add(val, val2)
-        elif action == "-":
+        elif operation == "-":
             subtract(val, val2)
-        elif action == "*":
+        elif operation == "*":
             multiply(val, val2)
-        elif action == "/":
+        elif operation == "/":
             divide(val, val2)
         end = input("Type 'exit' to end the program or whatever else to continue: ")
+
+
+def number_validation(val, message):
+    while not val.isdigit():
+        val = input(message)
+    return val
 
 
 def add(val, val2):
@@ -41,8 +45,6 @@ def divide(val, val2):
         print("Do not divide by 0!")
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     calculator()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
